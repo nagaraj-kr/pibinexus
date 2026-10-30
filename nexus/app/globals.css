@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-plus-jakarta-sans), var(--font-geist-sans), sans-serif;
+}
+
+@layer base {
+  :root {
+    --font-sans: var(--font-plus-jakarta-sans), var(--font-geist-sans), sans-serif;
+  }
+  
+  html, body, button, input, select, textarea {
+    font-family: var(--font-plus-jakarta-sans), var(--font-geist-sans), sans-serif;
+    background-color: #ffffff;
+    color: #0f172a; /* slate-900 sharp readable text */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* Subtle, tasteful grid for light themes */
+.bg-subtle-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+}
+
+.bg-subtle-dots {
+  background-size: 20px 20px;
+  background-image: radial-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+}
+
+/* Clean cards with hairline borders */
+.clean-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+}
+
+.clean-card-hover {
+  transition: all 0.2s ease-in-out;
+}
+.clean-card-hover:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px 0 rgba(15, 23, 42, 0.06);
+  transform: translateY(-1px);
+}
+
+/* Minimalist scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Infinite Marquee Animation for Logo Cloud & Tickers */
+@keyframes logoMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-logo-marquee {
+  display: flex !important;
+  width: max-content !important;
+  will-change: transform;
+  animation: logoMarquee 26s linear infinite !important;
+}
+
+.animate-logo-marquee:hover {
+  animation-play-state: paused !important;
+}
